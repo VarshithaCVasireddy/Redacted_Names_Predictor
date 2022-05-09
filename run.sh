@@ -1,0 +1,1 @@
+pipenv run python project3.py --sentence "I'll admit that I was reluctant to see it because from what I knew of ██████████████ he was only able to do comedy"
