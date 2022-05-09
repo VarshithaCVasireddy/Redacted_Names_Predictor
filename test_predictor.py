@@ -1,6 +1,6 @@
 from types import NoneType
 import pytest
-
+import os
 from predictor import *
 
 def test_data_reading():

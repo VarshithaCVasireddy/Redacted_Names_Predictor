@@ -264,3 +264,4 @@ dmypy.json
 
 # Added by Varshitha
 .DS_Store
+model/clf.pickle

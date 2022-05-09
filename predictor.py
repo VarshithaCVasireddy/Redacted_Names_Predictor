@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.neural_network import MLPClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 LE = LabelEncoder()
 TFIDF = TfidfVectorizer()
@@ -39,11 +40,18 @@ def fit_prediction_models():
     f1, r_score, p_score = get_metrics(y_test, clf_preds)
     
     return clf, f1, r_score, p_score
+    # X_train, X_test, y_train, y_test = train_test_valid()    
+
+    # clf = RandomForestClassifier(random_state=1).fit(X_train, y_train)
+    # clf_preds = clf.predict(X_test)
+    # f1, r_score, p_score = get_metrics(y_test, clf_preds)
+    
+    # return clf, f1, r_score, p_score
 
 def get_metrics(y_actual, y_pred):
-    f1 = f1_score(y_actual,y_pred, average = 'macro')
-    r_score = recall_score(y_actual,y_pred, average = 'macro')
-    p_score = precision_score(y_actual,y_pred, average = 'macro')
+    f1 = f1_score(y_actual,y_pred, average = 'macro', zero_division = 1)
+    r_score = recall_score(y_actual,y_pred, average = 'macro', zero_division = 1)
+    p_score = precision_score(y_actual,y_pred, average = 'macro', zero_division = 1)
 
     return f1, r_score, p_score
 
@@ -69,4 +77,3 @@ def get_model(clf_path):
             f1, r_score, p_score = get_metrics(y_test, clf.predict(X_test))
 
             return clf, f1, r_score, p_score
-

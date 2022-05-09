@@ -23,6 +23,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.neural_network import MLPClassifier
+from sklearn.ensemble import RandomForestClassifier
 ~~~
 
 So as part of this project I used sklearn and pandas external libraries. And from sklearn I imported functions. <br/>
@@ -32,6 +33,7 @@ So as part of this project I used sklearn and pandas external libraries. And fro
 - TfidfVectorizer, LabelEncoder are used to convert data into vectors.
 - precision_score, recall_score, f1_score are imported to find f1, recall and precision score
 - MLPClassifier is imported to use MLPClassifier model.
+- RandomForestClassifier is imported to use RandomForestClassifier
 
 ### data_reading
 In this function the latest data from the "unredactor.tsv" will be read. I am reading the url of the "unredactor.tsv" file into pandas dataframe and I separated the data with tab space and I skipped the bad lines of data. I named the columns for each dataframe column.
@@ -91,7 +93,15 @@ def fit_prediction_models():
     f1, r_score, p_score = get_metrics(y_test, clf_preds)
     
     return clf, f1, r_score, p_score
+    # X_train, X_test, y_train, y_test = train_test_valid()    
+
+    # clf = RandomForestClassifier(random_state=1).fit(X_train, y_train)
+    # clf_preds = clf.predict(X_test)
+    # f1, r_score, p_score = get_metrics(y_test, clf_preds)
+    
+    # return clf, f1, r_score, p_score
 ~~~
+Sometimes MLPClassifier is failing so I am also attaching the code for RandomForestClassifier.<br/>
 In this function I am returning MLPClassifier model, f1 score, recall score and precision score. <br/>
 Referred: https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html,  https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html, https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html, https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html
 
@@ -229,6 +239,7 @@ def test_fit_prediction_models():
 - I didn't use the validation data.
 - The predicted names are not accurate.
 - A sentence has to be given for sure as an input parameter in order to get the name prediction as output.
+- Sometimes the code is failing for MLPClassifier model so I also wrote code with RandomForestClassifier, if one is not working please comment it and uncomment the commented code to make it work
 
 ## **Steps to Run project1**
 

@@ -15,6 +15,7 @@ def predict_name(args):
     TFIDF.fit(RAW_DATA.sentence)
     LE.fit(RAW_DATA.name)
     sentence = args.sentence
+    #sentence = "I'll admit that I was reluctant to see it because from what I knew of ██████████████ he was only able to do comedy"
     df = pd.Series(sentence)
     sent = TFIDF.transform(df)
     pre = clf.predict(sent)
@@ -30,3 +31,4 @@ if __name__ == '__main__':
     parser.add_argument('--sentence',required = True, type = str,help='Redacted sentence is to be given.')
     args = parser.parse_args()
     predict_name(args)
+    #predict_name()
