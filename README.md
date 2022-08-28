@@ -1,10 +1,10 @@
-# cs5293sp22-project3
+# Redacted Names Predictor
 ## Author: Varshitha Choudary Vasireddy
 
 ## Description of the project:
 Whenever sensitive information is shared with the public, the data must go through a redaction process. That is, all sensitive names, places, and other sensitive information must be hidden. Documents such as police reports, court transcripts, and hospital records all containing sensitive information. Redacting this information is often expensive and time consuming.
 <br/>
-For project 3, I created an Unredactor. The unredactor will take redacted documents where name of a person is redacted and it returns the most likely candidates to fill in the redacted location. I also displayed the f1 score, recall score and precision score.
+I created an Unredactor. The unredactor will take redacted documents where name of a person is redacted and it returns the most likely candidates to fill in the redacted location. I also displayed the f1 score, recall score and precision score.
 
 ## Structure of project
 2 python files are present in this project, project3.py and predictor.py. <br/>
@@ -247,7 +247,7 @@ def test_fit_prediction_models():
 Clone the project directory using below command
 
 ~~~json
-git clone https://github.com/VarshithaCVasireddy/cs5293sp22-project3
+git clone https://github.com/VarshithaCVasireddy/Redacted_Names_Predictor
 ~~~
 Navigate to directory that we cloned from git and run the below command to install dependencies
 <br/>
